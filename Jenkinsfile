@@ -19,9 +19,4 @@ pipeline {
         }
     }
 
-    post {
-        success {
-            // post-build actions here
-        }
-    }
 }
