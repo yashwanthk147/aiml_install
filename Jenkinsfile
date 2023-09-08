@@ -22,7 +22,7 @@ pipeline {
                     sh "ssh -o StrictHostKeyChecking=no ubuntu@${SERVER_IP} 'cd ${apppath} && ./python_aiml.sh ${PYTHON_VERSION} ${VENV_NAME}'"
 
                     //activate source ~/.venvs/my-venv-name-3.9/bin/activate
-                    sh "ssh -o StrictHostKeyChecking=no ubuntu@${SERVER_IP} 'cd ${apppath} && source ~/.venvs/my-venv-name-${PYTHON_VERSION}/bin/activate'"
+                    sh "ssh -o StrictHostKeyChecking=no ubuntu@${SERVER_IP} 'cd ${apppath} && source ~/.venvs/my-venv-name-3.10/bin/activate'"
                 }
             }
         }
