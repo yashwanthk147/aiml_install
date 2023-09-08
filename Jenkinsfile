@@ -12,12 +12,11 @@ pipeline {
         stage('Install Python and Setup Environment') {
             steps {
                 script {
-                    sshagent(credentials: ['terraform_id']) {
+                    sshagent(credentials: ['terraform_id'] ) {
                         sh """
                             pwd
                             ls
-                            scp -r /var/lib/jenkins/workspace/aiml-job/* ubuntu@${SERVER_IP}:$apppath/
-                            ssh -o StrictHostKeyChecking=no ubuntu@${SERVER_IP} ./python_aiml.sh ${PYTHON_VERSION} ${VENV_NAME}
+                            ssh -o StrictHostKeyChecking=no ubuntu@${SERVER_IP} 
                         """
                     }
                 }
