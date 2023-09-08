@@ -13,6 +13,7 @@ pipeline {
             steps {
                 sshagent(['terraform_id']) {
                     sh 'ssh -o StrictHostKeyChecking=no ubuntu@${SERVER_IP}'
+                    sh 'scp -r /var/lib/jenkins/workspace/aiml-job/* ubuntu@${SERVER_IP}:$apppath/'
             }
             }
         }
