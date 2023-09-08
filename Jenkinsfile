@@ -4,7 +4,7 @@ pipeline {
     environment {
         PYTHON_VERSION = '3.10'
         VENV_NAME = 'my-venv-name-3.10'
-        SERVER_IP = '34.207.68.82'
+        SERVER_IP = '35.175.148.74'
     }
 
     stages {
