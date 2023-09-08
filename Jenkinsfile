@@ -18,8 +18,8 @@ pipeline {
                     sh "scp -o StrictHostKeyChecking=no -r /var/lib/jenkins/workspace/aiml-job/* ubuntu@${SERVER_IP}:${apppath}/"
 
                     // Set execute permission on the remote script
-                    //sh "ssh -o StrictHostKeyChecking=no ubuntu@${SERVER_IP} 'chmod +x ${apppath}/python_aiml.sh  && ./python_aiml.sh ${PYTHON_VERSION} ${VENV_NAME}'"
-                    sh "ssh -o StrictHostKeyChecking=no ubuntu@${SERVER_IP} 'cd ${apppath} && ./python_aiml.sh ${PYTHON_VERSION} ${VENV_NAME}'"
+                    sh "ssh -o StrictHostKeyChecking=no ubuntu@${SERVER_IP} 'chmod +x ${apppath}/python_aiml.sh  && ./python_aiml.sh ${PYTHON_VERSION} ${VENV_NAME}'"
+                    //sh "ssh -o StrictHostKeyChecking=no ubuntu@${SERVER_IP} 'cd ${apppath} && ./python_aiml.sh ${PYTHON_VERSION} ${VENV_NAME}'"
 
                     //activate source ~/.venvs/my-venv-name-3.9/bin/activate
                     sh "ssh -o StrictHostKeyChecking=no ubuntu@${SERVER_IP} 'cd ${apppath} && source ~/.venvs/my-venv-name-3.10/bin/activate'"
