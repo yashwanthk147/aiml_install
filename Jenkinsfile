@@ -13,10 +13,10 @@ pipeline {
             steps {
                 sshagent(['terraform_id']) {
                     sh "ssh -o StrictHostKeyChecking=no ubuntu@${SERVER_IP}"
-                    sh "pwd"
-                    sh "scp -r /var/lib/jenkins/workspace/aiml-job/* ubuntu@${SERVER_IP}:${apppath}/"
-                    sh "pwd"
-                    sh "ls"
+                    // Copy files from Jenkins workspace to remote server
+                    sh "scp -o StrictHostKeyChecking=no -r /var/lib/jenkins/workspace/aiml-job/* ubuntu@${SERVER_IP}:${apppath}/"
+                    // Run the command on the remote server
+                    sh "ssh -o StrictHostKeyChecking=no ubuntu@${SERVER_IP} 'cd ${apppath} && ./python_aiml.sh ${PYTHON_VERSION} ${VENV_NAME}'"
                 }
             }
         }
