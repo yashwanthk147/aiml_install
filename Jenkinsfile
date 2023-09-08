@@ -11,15 +11,9 @@ pipeline {
     stages {
         stage('Install Python and Setup Environment') {
             steps {
-                script {
-                    sshagent(credentials: ['terraform_id'] ) {
-                        sh """
-                            pwd
-                            ls
-                            ssh -o StrictHostKeyChecking=no ubuntu@${SERVER_IP} 
-                        """
-                    }
-                }
+                sshagent(['terraform_id']) {
+                    'sh ssh -o StrictHostKeyChecking=no ubuntu@${SERVER_IP}'
+            }
             }
         }
     }
