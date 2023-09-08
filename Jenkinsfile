@@ -19,6 +19,9 @@ pipeline {
 
                     // Set execute permission on the remote script
                     sh "ssh -o StrictHostKeyChecking=no ubuntu@${SERVER_IP} 'chmod +x ${apppath}/python_aiml.sh  && ./python_aiml.sh ${PYTHON_VERSION} ${VENV_NAME}'"
+
+                    //activate
+                    sh "ssh -o StrictHostKeyChecking=no ubuntu@${SERVER_IP} 'source ~/.venvs/my-venv-name-${PYTHON_VERSION}/bin/activate'"
                 }
             }
         }
