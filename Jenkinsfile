@@ -5,7 +5,7 @@ pipeline {
         apppath= '/home/ubuntu'
         PYTHON_VERSION = '3.10'
         VENV_NAME = 'my-venv-name-3.10'
-        SERVER_IP = '35.175.148.74'
+        SERVER_IP = '100.25.104.137'
     }
 
     stages {
