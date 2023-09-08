@@ -54,9 +54,9 @@ sudo ufw allow 'Nginx HTTP'
 sudo systemctl status nginx
 
 # Create Nginx config file for your specific domain
-sudo tee /etc/nginx/sites-available/nsfwattachementdetection-qa.conf <<EOF
+sudo tee /etc/nginx/sites-available/${Domainname}.conf <<EOF
 server {
-        server_name nsfwattachementdetection-qa.onpassive.com;
+        server_name ${Domainname}.onpassive.com;
         location / {
                proxy_pass http://10.60.39.11:8080/;
                proxy_http_version 1.1;

@@ -3,13 +3,12 @@ pipeline {
 
     environment {
         apppath = '/home/ubuntu'
-        //PYTHON_VERSION = '3.8'
-        //VENV_NAME = 'my-venv-name-3.8'
-        //SERVER_IP = '100.26.217.67'
+
     }
     
     parameters{
         string(name: 'SERVER_IP', defaultValue: '100.26.217.67', description: 'EC2 Public IP')
+        string(name: 'Domainname', defaultValue: 'nsfwattachementdetection-qa', description: 'Domain Name')
         choice(name: 'PYTHON_VERSION', choices: ['3.8', '3.9', '3.10'], description: 'Pick Python Version') 
         choice(name: 'VENV_NAME', choices: ['my-venv-name-3.8', 'my-venv-name-3.9', 'my-venv-name-3.10'], description: 'Pick virtual environment name') 
 
