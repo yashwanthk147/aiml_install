@@ -13,7 +13,7 @@ pipeline {
                 script {
                     sshagent(credentials: ['terraform_id']) {
                         sh """
-                            ssh -o StrictHostKeyChecking=no ubuntu@${SERVER_IP} ./install_python.sh ${PYTHON_VERSION} ${VENV_NAME}
+                            ssh -o StrictHostKeyChecking=no ubuntu@${SERVER_IP} ./python_aiml.sh ${PYTHON_VERSION} ${VENV_NAME}
                         """
                     }
                 }
