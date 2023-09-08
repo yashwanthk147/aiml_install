@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Check for Python version and virtual environment name arguments
-if [ "$#" -ne 2 ]; then
+if [ "$#" -ne 3 ]; then
     echo "Usage: $0 <python_version> <venv_name>"
     echo "Example: $0 3.8 my-venv-name-3.8"
     echo "source ~/.venvs/my-venv-name-3.8/bin/activate"
