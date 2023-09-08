@@ -16,7 +16,7 @@ pipeline {
                         sh """
                             pwd
                             ls
-                            sh "scp -r /var/lib/jenkins/workspace/aiml-job/* ubuntu@${SERVER_IP}:$apppath/"
+                            scp -r /var/lib/jenkins/workspace/aiml-job/* ubuntu@${SERVER_IP}:$apppath/
                             ssh -o StrictHostKeyChecking=no ubuntu@${SERVER_IP} ./python_aiml.sh ${PYTHON_VERSION} ${VENV_NAME}
                         """
                     }
