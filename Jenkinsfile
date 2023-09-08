@@ -9,8 +9,8 @@ pipeline {
     }
     
     parameters{
-        choice(name: 'PYTHON_VERSION', choices: ['3.8', '3.9', '3.10'], description: 'Pick something') 
-        choice(name: 'VENV_NAME', choices: ['my-venv-name-3.8', 'my-venv-name-3.9', 'my-venv-name-3.10'], description: 'Pick something') 
+        choice(name: 'PYTHON_VERSION', choices: ['3.8', '3.9', '3.10'], description: 'Pick Python Version') 
+        choice(name: 'VENV_NAME', choices: ['my-venv-name-3.8', 'my-venv-name-3.9', 'my-venv-name-3.10'], description: 'Pick virtual environment name') 
 
     }
     stages {
