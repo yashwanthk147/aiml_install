@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Check for Python version and virtual environment name arguments
-if [ "$#" -ne 3 ]; then
+if [ "$#" -ne 4 ]; then
     echo "Usage: $0 <python_version> <venv_name>"
     echo "Example: $0 3.8 my-venv-name-3.8"
     echo "source ~/.venvs/my-venv-name-3.8/bin/activate"
@@ -16,6 +16,7 @@ fi
 python_version="$1"
 venv_name="$2"
 domain_name="$3"
+PRIVATE_IP="$4"
 
 # Update the apt package list
 sudo apt update -y
@@ -59,7 +60,7 @@ sudo tee /etc/nginx/sites-available/${domain_name}.conf <<EOF
 server {
         server_name ${domain_name}.onpassive.com;
         location / {
-               proxy_pass http://10.60.39.11:8080/;
+               proxy_pass http://${PRIVATE_IP}:8080/;
                proxy_http_version 1.1;
                proxy_set_header Upgrade \$http_upgrade;
                proxy_set_header Connection "Upgrade";
