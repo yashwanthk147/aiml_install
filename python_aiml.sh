@@ -15,6 +15,7 @@ fi
 # Extract the Python version and virtual environment name arguments
 python_version="$1"
 venv_name="$2"
+domain_name="$3"
 
 # Update the apt package list
 sudo apt update -y
@@ -54,9 +55,9 @@ sudo ufw allow 'Nginx HTTP'
 sudo systemctl status nginx
 
 # Create Nginx config file for your specific domain
-sudo tee /etc/nginx/sites-available/${Domainname}.conf <<EOF
+sudo tee /etc/nginx/sites-available/${domain_name}.conf <<EOF
 server {
-        server_name ${Domainname}.onpassive.com;
+        server_name ${domain_name}.onpassive.com;
         location / {
                proxy_pass http://10.60.39.11:8080/;
                proxy_http_version 1.1;
