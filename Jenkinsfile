@@ -3,11 +3,15 @@ pipeline {
 
     environment {
         apppath = '/home/ubuntu'
-        PYTHON_VERSION = '3.8'
+        //PYTHON_VERSION = '3.8'
         VENV_NAME = 'my-venv-name-3.8'
         SERVER_IP = '100.26.217.67'
     }
+    
+    parameters{
+        choice(name: 'PYTHON_VERSION', choices: ['3.8', '3.9', '3.10'], description: 'Pick something')
 
+    }
     stages {
         stage('Install Python and Setup Environment') {
             steps {
