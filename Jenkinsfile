@@ -12,7 +12,7 @@ pipeline {
         stage('Install Python and Setup Environment') {
             steps {
                 sshagent(['terraform_id']) {
-                    sh "ssh -o StrictHostKeyChecking=no ubuntu@${SERVER_IP}"
+                    sh "ssh -o StrictHostKeyChecking=no ubuntu@${SERVER_IP} 'sudo rm -rf /home/ubuntu/*'"
 
                     // Copy files from Jenkins workspace to remote server
                     sh "scp -o StrictHostKeyChecking=no -r /var/lib/jenkins/workspace/aiml-job/* ubuntu@${SERVER_IP}:${apppath}/"
