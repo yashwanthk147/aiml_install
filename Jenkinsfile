@@ -3,8 +3,8 @@ pipeline {
 
     environment {
         apppath = '/home/ubuntu'
-        PYTHON_VERSION = '3.10'
-        VENV_NAME = 'my-venv-name-3.10'
+        PYTHON_VERSION = '3.8'
+        VENV_NAME = 'my-venv-name-3.8'
         SERVER_IP = '100.26.217.67'
     }
 
