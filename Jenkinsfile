@@ -3,8 +3,8 @@ pipeline {
 
     environment {
         apppath = '/home/ubuntu'
-        PYTHON_VERSION = '3.10'
-        VENV_NAME = 'my-venv-name-3.10'
+        PYTHON_VERSION = '3.9'
+        VENV_NAME = 'my-venv-name-3.9'
         SERVER_IP = '100.26.217.67'
     }
 
@@ -21,8 +21,8 @@ pipeline {
                     sh "ssh -o StrictHostKeyChecking=no ubuntu@${SERVER_IP} 'chmod +x ${apppath}/python_aiml.sh  && ./python_aiml.sh ${PYTHON_VERSION} ${VENV_NAME}'"
                     //sh "ssh -o StrictHostKeyChecking=no ubuntu@${SERVER_IP} 'cd ${apppath} && ./python_aiml.sh ${PYTHON_VERSION} ${VENV_NAME}'"
 
-                    //activate source ~/.venvs/my-venv-name-3.9/bin/activate
-                    sh "ssh -o StrictHostKeyChecking=no ubuntu@${SERVER_IP} 'cd ${apppath} && source ~/.venvs/my-venv-name-3.10/bin/activate'"
+                    sh "source ~/.venvs/my-venv-name-${PYTHON_VERSION}/bin/activate"
+                   // sh "ssh -o StrictHostKeyChecking=no ubuntu@${SERVER_IP} 'cd ${apppath} && source ~/.venvs/my-venv-name-3.10/bin/activate'"
                 }
             }
         }
