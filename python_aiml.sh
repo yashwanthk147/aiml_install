@@ -70,7 +70,7 @@ server {
 EOF
 
 # Create a symbolic link to enable the site
-sudo ln -s /etc/nginx/sites-available/${Domainname}.conf /etc/nginx/sites-enabled/
+sudo ln -s /etc/nginx/sites-available/${domain_name}.conf /etc/nginx/sites-enabled/
 
 
 # Test Nginx config
