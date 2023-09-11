@@ -3,7 +3,6 @@ pipeline {
 
     environment {
         apppath = '/home/ubuntu'
-        TF_CREDENTIALS = 'terraform_id'
     }
     
     parameters{
@@ -17,7 +16,7 @@ pipeline {
     stages {
         stage('Install Python and Setup Environment') {
             steps {
-                sshagent([${TF_CREDENTIALS}]) {
+                sshagent(['terraform_id']) {
 
                     sh "ssh -o StrictHostKeyChecking=no ubuntu@${params.SERVER_IP} 'sudo rm -rf ${apppath}/*'"
 
