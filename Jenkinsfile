@@ -17,7 +17,7 @@ pipeline {
     stages {
         stage('Install Python and Setup Environment') {
             steps {
-                sshagent(['$TF_CREDENTIALS']) {
+                sshagent(['${TF_CREDENTIALS}']) {
 
                     sh "ssh -o StrictHostKeyChecking=no ubuntu@${params.SERVER_IP} 'sudo rm -rf ${apppath}/*'"
 
