@@ -9,14 +9,15 @@ pipeline {
         string(name: 'SERVER_IP', defaultValue: '100.26.217.67', description: 'EC2 Public IP')
         string(name: 'PRIVATE_IP', defaultValue: '100.26.217.67', description: 'EC2 Private IP')
         string(name: 'Domainname', defaultValue: 'nsfwattachementdetection-qa', description: 'Domain Name')
-        choice(name: 'PYTHON_VERSION', choices: ['3.8', '3.9', '3.10'], description: 'Pick Python Version') 
+        choice(name: 'PYTHON_VERSION', choices: ['3.8', '3.9', '3.10'], description: 'Pick Python Version')
+        choice(name: 'SSH_AGENT', choices: ['terraform_id'], description: 'SSH_AGENT') 
         choice(name: 'VENV_NAME', choices: ['my-venv-name-3.8', 'my-venv-name-3.9', 'my-venv-name-3.10'], description: 'Pick virtual environment name') 
 
     }
     stages {
         stage('Install Python and Setup Environment') {
             steps {
-                sshagent(['terraform_id']) {
+                sshagent(${params.SSH_AGENT}) {
 
                     sh "ssh -o StrictHostKeyChecking=no ubuntu@${params.SERVER_IP} 'sudo rm -rf ${apppath}/*'"
 
